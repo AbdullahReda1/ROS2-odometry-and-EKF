@@ -1,5 +1,4 @@
-
-# info_1: What odometry is and why it drifts (Pass 1)
+# What odometry is and why it drifts
 
 Goal of this session: understand what `/odom` really is, and why you cannot trust it for long.
 You need this first. The EKF in session 5 only makes sense if you know what is wrong with the raw data.

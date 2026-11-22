@@ -1,4 +1,4 @@
-# Session 1 Notes: What Odometry Is and Why It Drifts
+# Session Notes: What Odometry Is and Why It Drifts
 
 ## 1. Core Concepts & Coordinate Frames
 
