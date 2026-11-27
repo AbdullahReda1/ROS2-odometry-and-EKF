@@ -1,0 +1,49 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+diff_drive_controller:
+  ros__parameters:
+    left_wheel_names: ["left_wheel_joint"]        # Joint name for the left wheel.
+    right_wheel_names: ["right_wheel_joint"]      # Joint name for the right wheel.
+
+    wheel_separation: 0.24                  # Distance between wheel centers, in meters.
+    wheel_radius: 0.05                      # Drive wheel radius, in meters.
+    wheel_separation_multiplier: 1.0        # Scale factor for wheel separation.
+    left_wheel_radius_multiplier: 1.0       # Scale factor for the left wheel radius.
+    right_wheel_radius_multiplier: 1.0      # Scale factor for the right wheel radius.
+
+    publish_rate: 50.0                # Odometry publishing rate, in Hz.
+    odom_frame_id: odom               # Frame used as the odometry reference.
+    base_frame_id: base_link          # Robot base frame.
+    enable_odom_tf: true              # Publish the odom-to-base transform.
+    tf_frame_prefix_enable: true      # Enable the configured TF frame prefix.
+    tf_frame_prefix: ""               # Prefix for TF frame names; empty means no prefix.
+
+    position_feedback: true               # Use wheel position feedback.
+    open_loop: false                      # Use feedback rather than command-only odometry.
+    velocity_rolling_window_size: 10      # Sample count for the rolling velocity average.
+    publish_limited_velocity: false       # Do not publish the limited velocity command.
+    cmd_vel_timeout: 0.5                  # Command timeout, in seconds.
+
+    pose_covariance_diagonal: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]      # Diagonal values of the pose covariance matrix.
+    twist_covariance_diagonal: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]     # Diagonal values of the twist covariance matrix.
+
+    linear.x.has_velocity_limits: true          # Enable linear velocity limits.
+    linear.x.max_velocity: 0.5                  # Maximum forward velocity, in meters per second.
+    linear.x.min_velocity: -0.5                 # Minimum reverse velocity, in meters per second.
+    linear.x.has_acceleration_limits: true      # Enable linear acceleration limits.
+    linear.x.max_acceleration: 1.0              # Maximum linear acceleration, in meters per second squared.
+
+    angular.z.has_velocity_limits: true         # Enable angular velocity limits.
+    angular.z.max_velocity: 2.0                 # Maximum yaw rate, in radians per second.
+    angular.z.min_velocity: -2.0                # Minimum yaw rate, in radians per second.
+    angular.z.has_acceleration_limits: true     # Enable angular acceleration limits.
+    angular.z.max_acceleration: 2.0             # Maximum yaw acceleration, in radians per second squared.
